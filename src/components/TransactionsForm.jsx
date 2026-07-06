@@ -1,7 +1,22 @@
 import { useState } from "react"
 
-function TransactionsForm() {
-  const [type, setType] = useState("Income")
+function TransactionsForm({ handleTransactions }) {
+  const [title, setTitle] = useState("")
+  const [amount, setAmount] = useState("")
+  const [type, setType] = useState("")
+  const [category, setCategory] = useState("")
+  const [date, setDate] = useState("")
+  
+
+  function handleAddButton() {
+    handleTransactions({title, amount, type, category, date})
+    setTitle("")
+    setAmount("")
+    setType("")
+    setCategory("")
+    setDate("")
+  }
+
   return(
     <>
       <div>
@@ -9,12 +24,15 @@ function TransactionsForm() {
         <input 
           type="text"
           placeholder="Add Transaction"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <h3>Amount</h3>
         <input 
           type="text" 
-          name=""
-          placeholder="Amout"
+          placeholder="Amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
           />
           <h3>Type</h3>
           <div>
@@ -44,7 +62,10 @@ function TransactionsForm() {
             <label>
               <select 
                 name="category" 
-                id="category">
+                id="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                >
                 <option value="salary">Salary</option>
                 <option value="needs">Needs</option>
                 <option value="entertaiment">Entertaiment</option>
@@ -54,7 +75,14 @@ function TransactionsForm() {
             </label>
           </div>
           <h3>Date</h3>
-          <input type="date" />
+          <input 
+            type="date" 
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <div>
+            <button onClick={handleAddButton}>Add</button>
+          </div>
       </div>
     </>
   )

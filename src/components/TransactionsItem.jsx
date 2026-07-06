@@ -3,11 +3,11 @@ function TransactionsItem({ transaction }) {
   return(
     <>  
       <div>
-          <p>{transaction.title}</p>
-          <p>{transaction.amount}</p>
-          <p>{transaction.type}</p>
-          <p>{transaction.category}</p>
-          <p>{transaction.date}</p>
+          <p>Title: {transaction.title}</p>
+          <p>Amount: {transaction.amount}</p>
+          <p>Type: {transaction.type}</p>
+          <p>Category: {transaction.category}</p>
+          <p>Date: {transaction.date}</p>
       </div>
     </>
   )
