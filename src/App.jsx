@@ -10,7 +10,7 @@ function App() {
       id: Date.now,
       title: "makan",
       amount: 500000,
-      type: "income",
+      type: "Income",
       category: "Needs",
       date: "2026-07-6"
     }, 
@@ -18,7 +18,7 @@ function App() {
       id: Date.now,
       title: "jajan",
       amount: 300000,
-      type: "income",
+      type: "Income",
       category: "Needs",
       date: "2026-07-6"
     }
