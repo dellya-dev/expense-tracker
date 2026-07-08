@@ -7,9 +7,16 @@ function TransactionsForm({ handleTransactions }) {
   const [category, setCategory] = useState("")
   const [date, setDate] = useState("")
   
+  const transaction = {
+    title,
+    amount, 
+    type, 
+    category, 
+    date
+  }
 
   function handleAddButton() {
-    handleTransactions({title, amount, type, category, date})
+    handleTransactions(transaction)
     setTitle("")
     setAmount("")
     setType("")
