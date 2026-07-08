@@ -1,13 +1,16 @@
-function TransactionsItem({ transaction }) {
+import '../App.css'
+
+function TransactionsItem({ transaction, deleteTransaction }) {
 
   return(
     <>  
-      <div>
-          <p>Title: {transaction.title}</p>
-          <p>Amount: {transaction.amount}</p>
-          <p>Type: {transaction.type}</p>
-          <p>Category: {transaction.category}</p>
-          <p>Date: {transaction.date}</p>
+      <div className="transaction-header">
+          <p>{transaction.title}</p>
+          <p>{transaction.amount}</p>
+          <p>{transaction.type}</p>
+          <p>{transaction.category}</p>
+          <p>{transaction.date}</p>
+          <button onClick={() => deleteTransaction(transaction.id)}>🗑️</button>
       </div>
     </>
   )

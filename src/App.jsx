@@ -47,6 +47,10 @@ function App() {
   const totalExpense = filterExpense.reduce((total, transaction) => {return total + transaction.amount}, 0)
 
   const balance = totalIncome - totalExpense
+
+  function deleteTransaction(id) {
+    setTransactions(transactions.filter((transaction) => transaction.id !== id ))
+  }
   
 
   return (
@@ -57,6 +61,7 @@ function App() {
       />
       <TransactionsList
         transactions={transactions}
+        deleteTransaction={deleteTransaction}
       />
       <Summary 
         totalIncome={totalIncome}
