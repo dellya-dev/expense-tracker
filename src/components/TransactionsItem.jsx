@@ -11,6 +11,7 @@ function TransactionsItem({ transaction, deleteTransaction }) {
           <p>{transaction.category}</p>
           <p>{transaction.date}</p>
           <button onClick={() => deleteTransaction(transaction.id)}>🗑️</button>
+          <button>🖋️</button>
       </div>
     </>
   )

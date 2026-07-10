@@ -26,7 +26,7 @@ function App() {
   ])
   const [editingTransaction, setEditingTransaction] = useState(null)
 
-  function addTransactions(transaction) {
+  function addTransaction(transaction) {
     setTransactions((prev) => [
       ...prev,
       {
@@ -38,34 +38,44 @@ function App() {
 
   console.log(transactions)
 
-  const filterIncome =  transactions.filter((transaction) => transaction.type === "income")
+  function editTransaction(updatedTransaction) {
+    
+    setTransactions(transactions.map((transaction) => transaction.id === updatedTransaction.id
+      ? updatedTransaction
+      : transaction
+    ))
+    setEditingTransaction(null)
+  }
+
+  const filterIncome = transactions.filter((transaction) => transaction.type === "income")
 
   const totalIncome =
-    filterIncome.reduce((total, transaction) => {return total + transaction.amount}, 0) 
+    filterIncome.reduce((total, transaction) => { return total + transaction.amount }, 0)
 
   const filterExpense = transactions.filter((transaction) => transaction.type === "expense")
 
-  const totalExpense = filterExpense.reduce((total, transaction) => {return total + transaction.amount}, 0)
+  const totalExpense = filterExpense.reduce((total, transaction) => { return total + transaction.amount }, 0)
 
   const balance = totalIncome - totalExpense
 
   function deleteTransaction(id) {
-    setTransactions(transactions.filter((transaction) => transaction.id !== id ))
+    setTransactions(transactions.filter((transaction) => transaction.id !== id))
   }
-  
+
 
   return (
     <>
       <h1>Expense Tracker</h1>
       <TransactionsForm
-        handleTransactions={addTransactions}
+        handleAddTransaction={addTransaction}
         editingTransaction={editingTransaction}
+        handleEditTransaction={editTransaction}
       />
       <TransactionsList
         transactions={transactions}
         deleteTransaction={deleteTransaction}
       />
-      <Summary 
+      <Summary
         totalIncome={totalIncome}
         totalExpense={totalExpense}
         balance={balance}
