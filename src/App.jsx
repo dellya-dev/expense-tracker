@@ -24,6 +24,7 @@ function App() {
       date: "2026-07-6"
     }
   ])
+  const [editingTransaction, setEditingTransaction] = useState(null)
 
   function addTransactions(transaction) {
     setTransactions((prev) => [
@@ -58,6 +59,7 @@ function App() {
       <h1>Expense Tracker</h1>
       <TransactionsForm
         handleTransactions={addTransactions}
+        editingTransaction={editingTransaction}
       />
       <TransactionsList
         transactions={transactions}

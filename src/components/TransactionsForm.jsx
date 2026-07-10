@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function TransactionsForm({ handleTransactions }) {
+function TransactionsForm({ handleTransactions, editingTransaction }) {
   const [title, setTitle] = useState("")
   const [amount, setAmount] = useState("")
   const [type, setType] = useState("")
@@ -88,7 +88,10 @@ function TransactionsForm({ handleTransactions }) {
             onChange={(e) => setDate(e.target.value)}
           />
           <div>
-            <button onClick={handleAddButton}>Add</button>
+            <button 
+              onClick={handleAddButton}>
+              {editingTransaction? "Save Changes" : "Add Transaction"}
+            </button>
           </div>
       </div>
     </>
