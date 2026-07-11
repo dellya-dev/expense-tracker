@@ -1,7 +1,7 @@
 import TransactionsItem from "./TransactionsItem"
 import '../App.css'
 
-function TransactionsList({ transactions, deleteTransaction }) {
+function TransactionsList({ transactions, deleteTransaction, handleStartEdit }) {
 
   return(
     <>
@@ -11,6 +11,7 @@ function TransactionsList({ transactions, deleteTransaction }) {
             key={transaction.id}
             transaction={transaction}
             deleteTransaction={deleteTransaction}
+            handleStartEdit={handleStartEdit}
           />
         )
       })}</div>

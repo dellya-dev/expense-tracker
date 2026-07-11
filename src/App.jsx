@@ -47,6 +47,14 @@ function App() {
     setEditingTransaction(null)
   }
 
+  function startEdit(transaction) {
+    setEditingTransaction(transaction)
+  }
+
+   function deleteTransaction(id) {
+    setTransactions(transactions.filter((transaction) => transaction.id !== id))
+  }
+
   const filterIncome = transactions.filter((transaction) => transaction.type === "income")
 
   const totalIncome =
@@ -57,10 +65,6 @@ function App() {
   const totalExpense = filterExpense.reduce((total, transaction) => { return total + transaction.amount }, 0)
 
   const balance = totalIncome - totalExpense
-
-  function deleteTransaction(id) {
-    setTransactions(transactions.filter((transaction) => transaction.id !== id))
-  }
 
 
   return (
@@ -74,6 +78,7 @@ function App() {
       <TransactionsList
         transactions={transactions}
         deleteTransaction={deleteTransaction}
+        handleStartEdit={startEdit}
       />
       <Summary
         totalIncome={totalIncome}

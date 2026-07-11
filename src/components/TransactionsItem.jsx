@@ -1,6 +1,6 @@
 import '../App.css'
 
-function TransactionsItem({ transaction, deleteTransaction }) {
+function TransactionsItem({ transaction, deleteTransaction, handleStartEdit }) {
 
   return(
     <>  
@@ -11,7 +11,7 @@ function TransactionsItem({ transaction, deleteTransaction }) {
           <p>{transaction.category}</p>
           <p>{transaction.date}</p>
           <button onClick={() => deleteTransaction(transaction.id)}>🗑️</button>
-          <button>🖋️</button>
+          <button onClick={() => handleStartEdit(transaction)}>🖋️</button>
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function TransactionsForm({ handleAddTransaction, editingTransaction, handleEditTransaction }) {
   const [title, setTitle] = useState("")
@@ -6,6 +6,7 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
   const [type, setType] = useState("")
   const [category, setCategory] = useState("")
   const [date, setDate] = useState("")
+
 
   const transaction = {
     title,
@@ -41,6 +42,17 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
 
     }
   }
+
+  useEffect(() => {
+    if (editingTransaction) {
+      setTitle(editingTransaction.title)
+      setAmount(editingTransaction.amount)
+      setType(editingTransaction.type)
+      setCategory(editingTransaction.category)
+      setDate(editingTransaction.date)
+    }
+
+  }, [editingTransaction])
 
   return (
     <>
