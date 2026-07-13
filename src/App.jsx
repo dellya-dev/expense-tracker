@@ -4,6 +4,7 @@ import './App.css'
 import TransactionsForm from './components/TransactionsForm'
 import TransactionsList from './components/TransactionsList'
 import Summary from './components/Summary'
+import FilterBar from './components/FilterBar'
 
 function App() {
   const [transactions, setTransactions] = useState([
@@ -14,10 +15,17 @@ function App() {
       type: "expense",
       category: "needs",
       date: "2026-7-13"
-
+    }, {
+      id: 2,
+      title: "gaji",
+      amount: 10000000,
+      type: "income",
+      category: "salary",
+      date: "2026-7-13"
     }
   ])
   const [editingTransaction, setEditingTransaction] = useState(null)
+  const [filter, setFilter] = useState("all")
 
   function addTransaction(transaction) {
     setTransactions((prev) => [
@@ -57,7 +65,16 @@ function App() {
 
   const balance = totalIncome - totalExpense
 
-  console.log(transactions)
+  const filterTransaction = 
+    transactions.filter((transaction) => {
+      if (filter === "income") {
+        return transaction.type === "income"
+      } else if (filter === "expense") {
+        return transaction.type === "expense"
+      } else {
+        return "all"
+      }
+    })
 
   return (
     <>
@@ -67,8 +84,11 @@ function App() {
         editingTransaction={editingTransaction}
         handleEditTransaction={editTransaction}
       />
+      <FilterBar 
+        setFilter={setFilter}
+      />
       <TransactionsList
-        transactions={transactions}
+        transactions={filterTransaction}
         deleteTransaction={deleteTransaction}
         handleStartEdit={startEdit}
       />
