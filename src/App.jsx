@@ -5,6 +5,7 @@ import TransactionsForm from './components/TransactionsForm'
 import TransactionsList from './components/TransactionsList'
 import Summary from './components/Summary'
 import FilterBar from './components/FilterBar'
+import SearchBar from './components/SearchBar'
 
 function App() {
   const [transactions, setTransactions] = useState([
@@ -26,6 +27,7 @@ function App() {
   ])
   const [editingTransaction, setEditingTransaction] = useState(null)
   const [filter, setFilter] = useState("all")
+  const [search, setSearch] = useState("")
 
   function addTransaction(transaction) {
     setTransactions((prev) => [
@@ -65,8 +67,9 @@ function App() {
 
   const balance = totalIncome - totalExpense
 
-  const filterTransaction = 
+  const filterTransactions = 
     transactions.filter((transaction) => {
+
       if (filter === "income") {
         return transaction.type === "income"
       } else if (filter === "expense") {
@@ -76,9 +79,16 @@ function App() {
       }
     })
 
+    const searchedTransactions = 
+      filterTransactions.filter((transaction) => transaction.title.toLowerCase().includes(search.toLowerCase()))
+
   return (
     <>
       <h1>Expense Tracker</h1>
+      <SearchBar 
+        search={search}
+        setSearch={setSearch}
+      />
       <TransactionsForm
         handleAddTransaction={addTransaction}
         editingTransaction={editingTransaction}
@@ -88,7 +98,8 @@ function App() {
         setFilter={setFilter}
       />
       <TransactionsList
-        transactions={filterTransaction}
+        transactions={filterTransactions}
+        transactions={searchedTransactions}
         deleteTransaction={deleteTransaction}
         handleStartEdit={startEdit}
       />
