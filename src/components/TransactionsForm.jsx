@@ -7,6 +7,7 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
   const [category, setCategory] = useState("")
   const [date, setDate] = useState("")
 
+  console.log(category)
 
   const transaction = {
     title,
@@ -54,6 +55,8 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
 
   }, [editingTransaction])
 
+
+
   return (
     <>
       <div>
@@ -66,10 +69,10 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
         />
         <h3>Amount</h3>
         <input
-          type="text"
+          type="number"
           placeholder="Amount"
           value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => setAmount(e.target.value === "" ? "" : Number(e.target.value))}
         />
         <h3>Type</h3>
         <div>
@@ -101,8 +104,13 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
               name="category"
               id="category"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => {
+                console.log(e.target.value)
+                setCategory(e.target.value)
+              }
+              }
             >
+              <option value="">Choose category</option>
               <option value="salary">Salary</option>
               <option value="needs">Needs</option>
               <option value="entertaiment">Entertaiment</option>

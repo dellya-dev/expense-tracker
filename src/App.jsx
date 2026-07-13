@@ -9,19 +9,12 @@ function App() {
   const [transactions, setTransactions] = useState([
     {
       id: 1,
-      title: "makan",
-      amount: 500000,
-      type: "income",
-      category: "Needs",
-      date: "2026-07-6"
-    },
-    {
-      id: 2,
-      title: "jajan",
-      amount: 300000,
-      type: "income",
-      category: "Needs",
-      date: "2026-07-6"
+      title: "Makan",
+      amount: 200000,
+      type: "expense",
+      category: "needs",
+      date: "2026-7-13"
+
     }
   ])
   const [editingTransaction, setEditingTransaction] = useState(null)
@@ -35,8 +28,6 @@ function App() {
       }
     ])
   }
-
-  console.log(transactions)
 
   function editTransaction(updatedTransaction) {
     
@@ -66,6 +57,7 @@ function App() {
 
   const balance = totalIncome - totalExpense
 
+  console.log(transactions)
 
   return (
     <>
