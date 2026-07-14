@@ -1,3 +1,5 @@
+import './TransactionsForm.css'
+
 import { useEffect, useState } from "react"
 
 function TransactionsForm({ handleAddTransaction, editingTransaction, handleEditTransaction }) {
@@ -56,7 +58,7 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
 
   }, [editingTransaction])
 
-  const isValidForm = 
+  const isValidForm =
     title !== "" &&
     amount > 0 &&
     type !== "" &&
@@ -65,80 +67,87 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
 
   return (
     <>
-      <div>
-        <h3>Add Transaction</h3>
-        <input
-          type="text"
-          placeholder="Add Transaction"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <h3>Amount</h3>
-        <input
-          type="number"
-          placeholder="Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value === "" ? "" : Number(e.target.value))}
-        />
-        <h3>Type</h3>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="type"
-              value="income"
-              checked={type === "income"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            Income
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="type"
-              value="expense"
-              checked={type === "expense"}
-              onChange={(e) => setType(e.target.value)}
-            />
-            Expense
-          </label>
+      <div className='form-transaction'>
+        <div className='form-title'>
+          <h3>Add Transaction</h3>
+          <input
+            type="text"
+            placeholder="Add Transaction"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
-        <h3>Category</h3>
-        <div>
-          <label>
-            <select
-              name="category"
-              id="category"
-              value={category}
-              onChange={(e) => {
-                setCategory(e.target.value)
-              }
-              }
-            >
-              <option value="">Choose category</option>
-              <option value="salary">Salary</option>
-              <option value="needs">Needs</option>
-              <option value="entertaiment">Entertaiment</option>
-              <option value="holiday">Holiday</option>
-              <option value="education">Education</option>
-            </select>
-          </label>
+        <div className='form-amount'>
+          <h3>Amount</h3>
+          <input
+            type="number"
+            placeholder="Amount"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value === "" ? "" : Number(e.target.value))}
+          />
         </div>
-        <h3>Date</h3>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
         <div>
-          <button
-            disabled={!isValidForm}
-            onClick={handleSubmit}>
-            {editingTransaction ? "Save Changes" : "Add Transaction"}
-          </button>
-          <p> {!isValidForm? "All data must be filled in" : ""}</p>
-         
+          <h3>Type</h3>
+          <div className='radio-group'>
+            <label>
+              <input
+                type="radio"
+                name="type"
+                value="income"
+                checked={type === "income"}
+                onChange={(e) => setType(e.target.value)}
+              />
+              Income
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="type"
+                value="expense"
+                checked={type === "expense"}
+                onChange={(e) => setType(e.target.value)}
+              />
+              Expense
+            </label>
+          </div>
         </div>
+        <div>
+          <h3>Category</h3>
+          <div className='form-category'>
+            <label>
+              <select
+                name="category"
+                id="category"
+                value={category}
+                onChange={(e) => {
+                  setCategory(e.target.value)
+                }
+                }
+              >
+                <option value="">Choose category</option>
+                <option value="salary">Salary</option>
+                <option value="needs">Needs</option>
+                <option value="entertaiment">Entertaiment</option>
+                <option value="holiday">Holiday</option>
+                <option value="education">Education</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div className='form-date'>
+          <h3>Date</h3>
+          <input
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+        <button
+          disabled={!isValidForm}
+          onClick={handleSubmit}>
+          {editingTransaction ? "Save Changes" : "Add Transaction"}
+        </button>
+        <p> {!isValidForm ? "All data must be filled in" : ""}</p>
       </div>
     </>
   )

@@ -1,12 +1,21 @@
-function Summary({ totalIncome, totalExpense, balance }) {
+import './Summary.css'
 
-  return(
+function Summary({ totalIncome, totalExpense, balance }) {
+  return (
     <>
       <div>
-        <h3>Summary</h3>
-        <p>Total Income: {totalIncome} </p>
-        <p>Total Expense: {totalExpense} </p>
-        <p>Balance: {balance} </p>
+        <h2 className='balance'
+          >Your Balance: Rp{balance.toLocaleString("id-ID")},00</h2>
+        <div className="total-income-expense">
+          <div>
+            <p>Total Income</p>
+            <p>Rp{totalIncome.toLocaleString("id-ID")},00 </p>
+          </div>
+          <div>
+            <p>Total Expense</p>
+            <p> Rp{totalExpense.toLocaleString("id-ID")},00</p>
+          </div>
+        </div>
       </div>
     </>
   )

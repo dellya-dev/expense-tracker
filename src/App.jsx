@@ -96,6 +96,11 @@ function App() {
         search={search}
         setSearch={setSearch}
       />
+       <Summary
+        totalIncome={totalIncome}
+        totalExpense={totalExpense}
+        balance={balance}
+      />
       <TransactionsForm
         handleAddTransaction={addTransaction}
         editingTransaction={editingTransaction}
@@ -109,11 +114,6 @@ function App() {
         transactions={searchedTransactions}
         deleteTransaction={deleteTransaction}
         handleStartEdit={startEdit}
-      />
-      <Summary
-        totalIncome={totalIncome}
-        totalExpense={totalExpense}
-        balance={balance}
       />
     </>
   )
