@@ -56,7 +56,12 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
 
   }, [editingTransaction])
 
-
+  const isValidForm = 
+    title !== "" &&
+    amount > 0 &&
+    type !== "" &&
+    category !== "" &&
+    date !== ""
 
   return (
     <>
@@ -127,9 +132,12 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
         />
         <div>
           <button
+            disabled={!isValidForm}
             onClick={handleSubmit}>
             {editingTransaction ? "Save Changes" : "Add Transaction"}
           </button>
+          <p> {!isValidForm? "All data must be filled in" : ""}</p>
+         
         </div>
       </div>
     </>
