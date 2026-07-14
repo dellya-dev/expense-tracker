@@ -7,7 +7,8 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
   const [category, setCategory] = useState("")
   const [date, setDate] = useState("")
 
-  console.log(category)
+  console.log(amount)
+  console.log(typeof amount)
 
   const transaction = {
     title,
@@ -105,7 +106,6 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
               id="category"
               value={category}
               onChange={(e) => {
-                console.log(e.target.value)
                 setCategory(e.target.value)
               }
               }

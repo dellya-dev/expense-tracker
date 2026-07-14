@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TransactionsForm from './components/TransactionsForm'
 import TransactionsList from './components/TransactionsList'
@@ -8,7 +8,9 @@ import FilterBar from './components/FilterBar'
 import SearchBar from './components/SearchBar'
 
 function App() {
-  const [transactions, setTransactions] = useState([
+  const [transactions, setTransactions] = useState(()=> {
+    const saved= localStorage.getItem("transactions")
+    return saved? JSON.parse(saved) : [
     {
       id: 1,
       title: "Makan",
@@ -24,7 +26,7 @@ function App() {
       category: "salary",
       date: "2026-7-13"
     }
-  ])
+  ]})
   const [editingTransaction, setEditingTransaction] = useState(null)
   const [filter, setFilter] = useState("all")
   const [search, setSearch] = useState("")
@@ -81,6 +83,12 @@ function App() {
 
     const searchedTransactions = 
       filterTransactions.filter((transaction) => transaction.title.toLowerCase().includes(search.toLowerCase()))
+
+    useEffect(() => {
+      localStorage.setItem("transactions", JSON.stringify(transactions))
+    }, [transactions])
+
+    console.log(transactions)
 
   return (
     <>
