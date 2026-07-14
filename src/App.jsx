@@ -92,7 +92,6 @@ function App() {
 
   return (
     <>
-      <h1>Expense Tracker</h1>
       <SearchBar 
         search={search}
         setSearch={setSearch}

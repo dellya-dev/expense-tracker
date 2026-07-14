@@ -3,6 +3,7 @@ function SearchBar({ search, setSearch }) {
   return(
     <>
       <div>
+        <h1>Expense Tracker</h1>
         <input 
           type="text" 
           placeholder="Search Here..."

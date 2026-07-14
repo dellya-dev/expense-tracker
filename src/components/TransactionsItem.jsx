@@ -1,4 +1,4 @@
-import '../App.css'
+import './TransactionsItem.css'
 
 function TransactionsItem({ transaction, deleteTransaction, handleStartEdit }) {
 
