@@ -4,8 +4,7 @@ function SearchBar({ search, setSearch }) {
  
   return(
     <>
-      <div className="summary">
-        <h1>Expense Tracker</h1>
+      <div className='search-container'>
         <input 
           name='input-search'
           type="text" 

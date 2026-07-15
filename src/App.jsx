@@ -92,22 +92,23 @@ function App() {
 
   return (
     <>
-      <SearchBar 
-        search={search}
-        setSearch={setSearch}
-      />
-       <Summary
-        totalIncome={totalIncome}
-        totalExpense={totalExpense}
-        balance={balance}
-      />
+      <h1 className='title-header'>Expense Tracker</h1>
       <TransactionsForm
         handleAddTransaction={addTransaction}
         editingTransaction={editingTransaction}
         handleEditTransaction={editTransaction}
       />
+      <Summary
+        totalIncome={totalIncome}
+        totalExpense={totalExpense}
+        balance={balance}
+      />
       <FilterBar 
         setFilter={setFilter}
+      />
+      <SearchBar 
+        search={search}
+        setSearch={setSearch}
       />
       <TransactionsList
         transactions={filterTransactions}

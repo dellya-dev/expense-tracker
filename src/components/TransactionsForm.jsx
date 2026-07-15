@@ -67,19 +67,21 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
 
   return (
     <>
-      <div className='form-transaction'>
-        <div className='form-title'>
+      <div className='transaction-container'>
+        <div>
           <h3>Add Transaction</h3>
           <input
+            className='form-title'
             type="text"
             placeholder="Add Transaction"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div className='form-amount'>
+        <div>
           <h3>Amount</h3>
           <input
+            className='form-amount'
             type="number"
             placeholder="Amount"
             value={amount}
@@ -88,7 +90,7 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
         </div>
         <div>
           <h3>Type</h3>
-          <div className='radio-group'>
+          <div className='form-type'>
             <label>
               <input
                 type="radio"
@@ -134,9 +136,10 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
             </label>
           </div>
         </div>
-        <div className='form-date'>
+        <div>
           <h3>Date</h3>
           <input
+            className='form-date'
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
@@ -147,7 +150,7 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
           onClick={handleSubmit}>
           {editingTransaction ? "Save Changes" : "Add Transaction"}
         </button>
-        <p> {!isValidForm ? "All data must be filled in" : ""}</p>
+        <p className='isvalid-form'> {!isValidForm ? "All data must be filled in" : ""}</p>
       </div>
     </>
   )

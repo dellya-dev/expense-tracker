@@ -3,7 +3,7 @@ import './Summary.css'
 function Summary({ totalIncome, totalExpense, balance }) {
   return (
     <>
-      <div>
+      <div className='summary-container'>
         <h2 className='balance'
           >Your Balance: Rp{balance.toLocaleString("id-ID")},00</h2>
         <div className="total-income-expense">
