@@ -19,3 +19,11 @@
 .transaction-list p {
   margin: 0;
 }
+
+.delete-button{
+  background-color: red;
+}
+
+.edit-button{
+  background-color: green;
+}

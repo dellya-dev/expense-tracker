@@ -146,6 +146,7 @@ function TransactionsForm({ handleAddTransaction, editingTransaction, handleEdit
           />
         </div>
         <button
+          className='submit-button'
           disabled={!isValidForm}
           onClick={handleSubmit}>
           {editingTransaction ? "Save Changes" : "Add Transaction"}

@@ -1,16 +1,30 @@
 
-
-.total-income-expense{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 30px;
+.summary-container{
+ display: flex;
+ justify-content: center;
+ flex-direction: row;
+ gap: 40px;
+ margin-bottom: 50px;
 }
 
-.balance{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  
+.balance-card,
+.income-card,
+.expense-card{
+  background-color:  rgba(158, 100, 145, 0.185);
+  border-radius: 7px;
+  margin: 10px;
+  padding: 16px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.balance-card{
+  color: green;
+}
+
+.income-card{
+  color: green;
+}
+
+.expense-card{
+  color: red;
 }

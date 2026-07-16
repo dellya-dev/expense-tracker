@@ -10,8 +10,8 @@ function TransactionsItem({ transaction, deleteTransaction, handleStartEdit }) {
           <p>{transaction.type}</p>
           <p>{transaction.category}</p>
           <p>{transaction.date}</p>
-          <button onClick={() => deleteTransaction(transaction.id)}>🗑️</button>
-          <button onClick={() => handleStartEdit(transaction)}>🖋️</button>
+          <button className='delete-button' onClick={() => deleteTransaction(transaction.id)}>🗑️</button>
+          <button className='edit-button' onClick={() => handleStartEdit(transaction)}>🖋️</button>
       </div>
     </>
   )
