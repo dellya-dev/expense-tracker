@@ -42,7 +42,6 @@ A simple expense tracking application built with React. It allows users to manag
 * React
 * JavaScript (ES6+)
 * CSS
-* Fetch API
 * Vite
 
 ---
