@@ -1,16 +1,118 @@
-# React + Vite
+# 📚 Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple expense tracking application built with React. It allows users to manage income and expenses, monitor their balance, and organize transactions by category.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+* Add income and expense transactions
+* Edit existing transactions
+* Delete transactions
+* Categorize transactions
+* Search transactions by title
+* Filter income and expenses
+* Calculate total income
+* Calculate total expenses
+* Calculate current balance
+* Persist transactions using localStorage
+* Responsive user interface
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📖 What I Learned
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Component-based architecture
+* Props
+* useState
+* Array methods such as map() and filter()
+* Controlled form inputs
+* CRUD operations
+* Derived data and calculations
+* Conditional rendering
+* Searching and filtering
+* localStorage
+* State synchronization
+* Responsive UI design
+
+---
+
+## 🛠️ Tech Stack
+
+* React
+* JavaScript (ES6+)
+* CSS
+* Fetch API
+* Vite
+
+---
+
+## 📸 Screenshots
+
+
+<img width="1275" height="621" alt="Cuplikan layar 2026-08-13 095017" src="https://github.com/user-attachments/assets/a741fa12-0b8f-427f-a465-f5b9a9fbc508" />
+
+---
+
+## 🌐 Live Demo
+
+```
+https://
+```
+
+---
+
+## 📁 Project Structure
+
+```text
+expense-tracker/
+│
+├── public/
+│
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── TransactionForm.jsx
+│   │   ├── TransactionList.jsx
+│   │   └── TransactionItem.jsx
+
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/yourusername/expense-tracker.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📌 Future Improvements
+
+* Better UI / UX
+* Responsive 
+
+---
