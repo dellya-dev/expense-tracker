@@ -57,7 +57,7 @@ A simple expense tracking application built with React. It allows users to manag
 ## 🌐 Live Demo
 
 ```
-https://
+[https://](https://expense-tracker-omega-sandy.vercel.app/)
 ```
 
 ---
